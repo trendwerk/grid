@@ -1,0 +1,51 @@
+/// Grid
+@mixin grid($args: ()) {
+  $settings: map-merge((
+    'breakpoints': (
+      421px: 2,
+      641px: 3,
+      981px: 4
+    ),
+    'item': null,
+    'margin': 20px,
+  ), $args);
+
+  @if not map-get($settings, 'item') {
+    @error '`item` should be set in grid() arguments.';
+  }
+
+  box-sizing: border-box;
+  float: left;
+
+  #{map-get($settings, 'item')} {
+    box-sizing: inherit;
+    clear: both;
+    margin-bottom: map-get($settings, 'margin');
+    width: 100%;
+
+    @each $breakpoint, $columns in map-get($settings, 'breakpoints') {
+      @media(min-width: $breakpoint) {
+        $totalSpacing: (map-get($settings, 'margin') * ($columns - 1));
+    
+        clear: none;
+        float: left;
+        margin-right: map-get($settings, 'margin');
+        width: calc((100% / #{$columns}) - #{($totalSpacing / $columns)});
+        
+        $currentBreakpointIndex: index(map-keys(map-get($settings, 'breakpoints')), $breakpoint);
+
+        @if $currentBreakpointIndex > 1 {
+          $previousColumns: nth(map-values(map-get($settings, 'breakpoints')), $currentBreakpointIndex - 1);
+
+          &:nth-child(#{($previousColumns)}n) {
+            margin-right: map-get($settings, 'margin');
+          }
+        }
+
+        &:nth-child(#{$columns}n) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
