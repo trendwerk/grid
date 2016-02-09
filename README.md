@@ -7,14 +7,14 @@ bower install trendwerk/grid --save
 ```
 
 ## Usage
-```sass
+```scss
 @include grid((
   'item': '.selector',
 ));
 ```
 
 ### API
-```sass
+```scss
 @include grid((
   'breakpoints': (
     421px: 2,
