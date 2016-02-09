@@ -30,7 +30,7 @@
         clear: none;
         float: left;
         margin-right: map-get($settings, 'margin');
-        width: calc((100% / #{$columns}) - #{($totalSpacing / $columns)});
+        width: calc(#{100% / $columns} - #{($totalSpacing / $columns)});
         
         $currentBreakpointIndex: index(map-keys(map-get($settings, 'breakpoints')), $breakpoint);
 
