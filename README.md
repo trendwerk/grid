@@ -7,14 +7,14 @@ bower install trendwerk/grid --save
 ```
 
 ## Usage
-```scss
+```css
 @include grid((
   'item': '.selector',
 ));
 ```
 
 ### API
-```scss
+```css
 @include grid((
   'breakpoints': (
     421px: 2,
@@ -26,11 +26,11 @@ bower install trendwerk/grid --save
 ));
 ```
 
-#### Item (required)
-The selector of the items in the grid.
-
 #### Breakpoints
 Specify breakpoints using a Sass map. Format: `minWidth: columnAmount`.
+
+#### Item (required)
+The selector of the items in the grid.
 
 #### Margin
 The space between elements.
