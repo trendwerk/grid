@@ -1,4 +1,6 @@
 /// Grid
+///
+/// @param {Map} $args - Grid settings
 @mixin grid($args: ()) {
   $settings: map-merge((
     'breakpoints': (
