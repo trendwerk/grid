@@ -3,7 +3,7 @@ Item grid.
 
 ## Install
 ```sh
-bower install trendwerk/grid --save
+bower install trendwerk/grid#~0.0.2 --save
 ```
 
 ## Usage
