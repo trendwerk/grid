@@ -27,23 +27,23 @@
 
     @each $breakpoint, $columns in map-get($settings, 'breakpoints') {
       @media(min-width: $breakpoint) {
-        $totalSpacing: (map-get($settings, 'margin') * ($columns - 1));
-    
+        $total-spacing: (map-get($settings, 'margin') * ($columns - 1));
+
         clear: none;
         float: left;
         margin-right: map-get($settings, 'margin');
-        width: calc(#{100% / $columns} - #{($totalSpacing / $columns)});
-        
-        $currentBreakpointIndex: index(map-keys(map-get($settings, 'breakpoints')), $breakpoint);
+        width: calc(#{100% / $columns} - #{($total-spacing / $columns)});
 
-        @if $currentBreakpointIndex > 1 {
-          $previousColumns: nth(map-values(map-get($settings, 'breakpoints')), $currentBreakpointIndex - 1);
+        $current-breakpoint-index: index(map-keys(map-get($settings, 'breakpoints')), $breakpoint);
 
-          &:nth-child(#{($previousColumns)}n) {
+        @if $current-breakpoint-index > 1 {
+          $previous-columns: nth(map-values(map-get($settings, 'breakpoints')), $current-breakpoint-index - 1);
+
+          &:nth-child(#{($previous-columns)}n) {
             margin-right: map-get($settings, 'margin');
           }
 
-          &:nth-child(#{($previousColumns)}n+1) {
+          &:nth-child(#{($previous-columns)}n+1) {
             clear: none;
           }
         }
