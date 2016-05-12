@@ -13,6 +13,8 @@ bower install trendwerk/grid#~0.0.3 --save
 ));
 ```
 
+Apply the mixin on the parent element, containing the grid items.
+
 ### API
 ```scss
 @include grid((
