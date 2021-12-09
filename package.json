@@ -1,6 +1,6 @@
 {
   "name": "grid",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "devDependencies": {
     "beepbeep": "^1.2.0",
     "gulp": "^3.9.1",
