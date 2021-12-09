@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /// Grid
 ///
 /// @param {Map} $args - Grid settings
@@ -32,7 +34,7 @@
         clear: none;
         float: left;
         margin-right: map-get($settings, 'margin');
-        width: calc(#{100% / $columns} - #{($total-spacing / $columns)});
+        width: calc(math.div(100%, $columns) - math.div($total-spacing, $columns));
 
         $current-breakpoint-index: index(map-keys(map-get($settings, 'breakpoints')), $breakpoint);
 
